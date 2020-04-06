@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width. initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/style.css">
+    <style type="text/css">
+      .unavailable { color: rgb(78, 78, 78); }
+    </style>
+
+    <title>
+      {% block title %} {% endblock %} - flask-streaming</title>
+
+    {% endblock %}
+  </head>
+
+  <body>
+    <div id="header">
+      {% block header %}
+      <div id = "header">
+        flask-streaming:
+        <a href="index">Home</a>
+        {% if session %}
+          <a href="login">My Profile</a>
+        {% else %}
+          <a href="login">Login</a>
+        {% endif %}
+        <a href="video_stream">Video</a>
+        {% if session %}
+          <a href="logout">Logout</a>
+        {% endif %}
+      </div>
+      {% endblock %}
+    </div>
+
+    <div id="content">
+      {% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
+      {% block content %}
+        
+      {% endblock %}
+    </div>
+    <div id="footer">
+      {% block footer %}
+      &copy; Copyright 2020 by <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">R. Astley</a>.
+      {% endblock %}
+    </div>
+  </body>
+</html>

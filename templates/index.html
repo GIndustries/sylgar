@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}
+Index
+{% endblock %}
+
+{% block content %}
+<div class="welcome">
+    <h1>Homepage!</h1>
+    <body>This is where I was testing various html tools</body>
+</div>
+
+
+<div class="container">
+    <form action="/submit" method="POST">
+        <div class="form-group">
+            <h3>Text Box</h3>
+            <input
+            type="text"
+            name="textbox"
+            placeholder="Can write text..."
+            />
+        </div>
+        <div class="form-group">
+            <h3>Drop Menu</h3>
+            <select name="dropMenu">
+                <option value="">Select Option</option>
+                <option value="option">Option</option>
+                        </select>
+        </div>
+        <div class="form-group">
+            <h3>Radio Buttons</h3>
+            <input type="radio" name="rating" value="1" checked/> 1
+            <input type="radio" name="rating" value="2" /> 2
+            <input type="radio" name="rating" value="3" /> 3
+            <input type="radio" name="rating" value="4" /> 4
+            <input type="radio" name="rating" value="5" /> 5
+        </div>
+        <div class="form-group">
+            <h3>Text Area</h3>
+            <textarea
+                name="textArea"
+                id=""
+                col="30"
+                rows="10"
+                placeholder="Bigger Textbox"
+            ></textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn" />
+    </form>
+</div>
+{% endblock %}

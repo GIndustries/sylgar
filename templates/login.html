@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<h1>Sign In</h1>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+        <!----------------------------------------------------------------------->
+        <dir class="form-group">
+            {{form.username.label(class="form-control-label") }}
+             {% if form.username.errors %}
+                    {{ form.username(class="form-control form-control-lg is-invalid") }}
+                 <div class="invalid-feedback">
+                     {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {{ form.username(class="form-control form-control-lg") }}
+        </dir>
+         <!----------------------------------------------------------------------->
+        <dir class="form-group">
+            {{form.password.label(class="form-control-label") }}
+            {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {{ form.password(class="form-control form-control-lg") }}
+        </dir>
+        <div class="form-check">
+            {{ form.remember(class="form-check-input")}}
+            {{ form.remember.label(class="form-check-label")}}
+        </div>
+        <div>
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+        <!----------------------------------------------------------------------->
+    </fieldset>
+    <div>
+        <p>New User? <a href="register">Click to Register!</a></p>
+    </div>
+{% endblock %}
